@@ -1,0 +1,7 @@
+Template Name: 	    Hop | Business Landing Page
+Version:            1.00
+Author:             Zahid Hasan Munna | Developer Zahid
+Author Occupation: 	Frontend Web Design & Developer
+Author Whatsapp:    https://wa.me/8801992409030
+Author Linkedin:    https://www.linkedin.com/in/zahid-hasan-munna/
+Author Email: 	    dgtaltechzahidhasan@gmail.com

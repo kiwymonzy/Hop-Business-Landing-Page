@@ -1,0 +1,173 @@
+/* Common Button's Style */
+.btn{
+	--bs-btn-padding-y: #{toRem(10)};
+	--bs-btn-padding-x: #{toRem(25)};
+	--bs-btn-font-size: #{toRem(14)};
+	--bs-border-radius: #{toRem(8)};
+	@include min-md{
+		--bs-btn-padding-y: #{toRem(15)};
+		--bs-btn-padding-x: #{toRem(30)};
+		--bs-btn-font-size: #{toRem(18)};
+		--bs-border-radius: #{toRem(15)};
+	}
+	--bs-btn-font-family: #{$font-primary};
+	--bs-btn-font-weight: 600;
+	--bs-btn-line-height: 1;
+	box-shadow: none !important;
+
+	&-sm{
+		--bs-btn-padding-y: #{toRem(10)};
+		--bs-btn-padding-x: #{toRem(15)};
+		--bs-btn-font-size: #{toRem(15)};
+	}
+
+	&__icon{
+		margin-right: toRem(10);
+	}
+}
+
+.btn-primary{
+	--bs-btn-bg: #{$color-primary};
+	--bs-btn-border-color: #{$color-primary};
+
+	--bs-btn-hover-color: #{$color-primary};
+	--bs-btn-hover-bg: transparent;
+	--bs-btn-hover-border-color: #{$color-primary};
+
+	--bs-btn-active-color: var(--bs-btn-hover-color);
+	--bs-btn-active-bg: var(--bs-btn-hover-bg);
+	--bs-btn-active-border-color: var(--bs-btn-hover-border-color);
+
+	&:focus{
+		color: var(--bs-btn-hover-color);
+		background-color: var(--bs-btn-hover-bg);
+		border-color: var(--bs-btn-hover-border-color);
+	}
+}
+
+.btn-outline-primary{
+	--bs-btn-color: #{$color-primary};
+	--bs-btn-border-color: #{$color-primary};
+	--bs-btn-hover-color: #fff;
+	--bs-btn-hover-bg: #{$color-primary};
+	--bs-btn-hover-border-color: #{$color-primary};
+	--bs-btn-active-color: #fff;
+	--bs-btn-active-bg: #{$color-primary};
+	--bs-btn-active-border-color: #{$color-primary};
+
+	&:focus{
+		color: var(--bs-btn-hover-color);
+		background-color: var(--bs-btn-hover-bg);
+		border-color: var(--bs-btn-hover-bg);
+	}
+}
+
+.btn-secondary{
+	--bs-btn-color: #{$color-black};
+	--_btn-interaction-color: #{$color-primary};
+	--bs-btn-bg: #D3D3D3;
+	--bs-btn-border-color: var(--bs-btn-bg);
+	--bs-btn-hover-color: #{$color-white};
+
+	--bs-btn-hover-bg: var(--_btn-interaction-color);
+	--bs-btn-hover-border-color: var(--_btn-interaction-color);
+
+	--bs-btn-active-color: var(--bs-btn-hover-color);
+	--bs-btn-active-bg: var(--_btn-interaction-color);
+	--bs-btn-active-border-color: var(--_btn-interaction-color);
+
+	&:focus{
+		color: var(--bs-btn-hover-color);
+		background-color: var(--_btn-interaction-color);
+		border-color: var(--_btn-interaction-color);
+	}
+}
+
+.back-btn{
+	display: inline-flex;
+	align-items: center;
+	background-color: transparent;
+	border: 0;
+	gap: toRem(6);
+	@include min-sm{
+		font-size: toRem(20);
+	}
+}
+
+.favorite-btn,
+.icon-btn
+{
+	&:not(.active) &__icon{
+		fill: transparent;
+	}
+}
+
+.favorite-btn{
+	--_size: #{toRem(40)};
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: var(--_size);
+	height: var(--_size);
+	font-size: toRem(18);
+	padding: 5px;
+	@extend %rounded-circle;
+	background-color: rgba($color-white, $alpha: 0.5);
+	border: 0;
+	color: $color-primary;
+	backdrop-filter: blur(toRem(25));
+	@include min-md{
+		--_size: #{toRem(50)};
+		font-size: toRem(22);
+	}
+}
+
+.icon-btn{
+	color: $color-black;
+	background-color: transparent;
+	font-size: toRem(25);
+	border: 0;
+	padding: 3px;
+	line-height: 0;
+	
+	&--sm{
+		font-size: toRem(16);
+	}
+}
+
+.text-btn{
+	display: inline-flex;
+	align-items: center;
+	font-size: toRem(16);
+	padding: 5px;
+	background-color: transparent;
+	border: 0;
+	line-height: 1;
+	@extend %fw-medium;
+
+	&:is(.active) &__before,
+    &:not(.active) &__after
+    {
+        display: none;
+    }
+}
+
+.scroll-top{
+	bottom: toRem(15);
+	right: toRem(15);
+	display: none;
+	cursor: pointer;
+	z-index: 7;
+
+	&__btn{
+		width: toRem(30);
+		height: toRem(30);
+		font-size: 1.1rem;
+		color: $color-white;
+		background-color: $color-primary;
+
+		&:active{
+			background-color: $color-secondary;
+		}
+	}
+}

@@ -1,0 +1,40 @@
+.pinterest-grid{
+    --_gap: #{toRem(15)};
+    --_total-columns: 1;
+    @include min-xxs{
+        --_total-columns: 2;
+    }
+    @include min-md{
+        --_total-columns: 3;
+    }
+    @include min-lg{
+        --_gap: #{toRem(20)};
+        --_total-columns: 4;
+    }
+
+    &--3{
+        @include min-md{
+            --_total-columns: 3;
+        }
+    }
+    &--5{
+        @include min-xl{
+            --_total-columns: 5;
+        }
+    }
+    &--6{
+        @include min-xl{
+            --_total-columns: 6;
+        }
+    }
+
+
+    display: block;
+    columns: var(--_total-columns);
+    gap: var(--_gap);
+
+    &__column{
+        break-inside: avoid;
+        margin-bottom: var(--_gap);
+    }
+}

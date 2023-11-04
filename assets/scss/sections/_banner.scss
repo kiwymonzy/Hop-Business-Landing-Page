@@ -1,0 +1,26 @@
+.banner{
+    padding-top: toRem(100);
+    padding-bottom: toRem(100);
+
+    &__title{
+        font-size: toRem(35);
+        @include min-sm{
+            font-size: toRem(50);
+        }
+        @include min-md{
+            font-size: toRem(70);
+        }
+
+        font-weight: 700;
+        margin-bottom: toRem(20);
+    }
+
+    &__text{
+        font-size: toRem(16);
+        @include min-md{
+            font-size: toRem(18);
+        }
+
+        font-weight: 500;
+    }
+}

@@ -1,0 +1,102 @@
+/* 
+--------------------------------------------------------------------
+Template Name: 	    Hop Website | Hop Website
+Version:            1.00
+Author:             Zahid Hasan Munna | Developer Zahid
+Author Occupation: 	Frontend Web Design & Developer
+Author Whatsapp:    https://wa.me/8801992409030
+Author Linkedin:    https://www.linkedin.com/in/zahid-hasan-munna/
+Author Facebook:    https://www.facebook.com/coderexpertzahid/
+Author Website:     https://developer-zahid-portfolio.netlify.app/
+Author Email: 	    dgtaltechzahidhasan@gmail.com
+---------------------------------------------------------------------
+*/
+
+(function ($) {
+    "use strict"
+
+	/* Preloader init */
+	function preLoader(){
+		if($(".preloader").length > 0){
+			$(".preloader").delay(300).fadeOut("slow")
+		}
+	}
+
+    function calculateVerticalHeight() {
+		var vh = window.innerHeight * 0.01;
+		document.documentElement.style.setProperty('--vh', vh + 'px')
+	}
+
+	function headerHeightFixer(){
+		$('.header-height-fix').css('height', $('header').innerHeight() +'px')
+		$('html').css('--header-size', $('header').innerHeight() +'px')
+	}
+
+	function getScrollbarWidth(){
+		return (window.innerWidth - $(document).width())
+	}
+
+	/* Window on load Event */
+	$(window).on('load', function () {
+        preLoader()
+    })
+
+	/* Window on resize Event */
+	$(window).on('resize', function () {
+		calculateVerticalHeight()
+    })
+	
+	/* Document on ready Event */
+	$(document).ready(function () {
+		calculateVerticalHeight()
+
+		$('header').before('<div class="header-height-fix"></div>')
+		headerHeightFixer()
+
+		/* Prevent document scroll when dropdown is show function */
+		$('.header .dropdown-toggle').on('show.bs.dropdown', function(event){
+			$('body').css('padding-right', getScrollbarWidth() + 'px')
+			$('.header').css('padding-right', getScrollbarWidth() + 'px')
+			$('body').addClass('overflow-hidden')
+		})
+		/* Reset document scroll when dropdown is hide function */
+		$('.header .dropdown-toggle').on('hide.bs.dropdown', function(event){
+			$('body').css('padding-right', '')
+			$('.header').css('padding-right', '')
+			$('body').removeClass('overflow-hidden')
+		})
+
+		$('.navbar__nav__dropdown-menu').each(function(index, item){
+			$(this).css('--_height', item.getBoundingClientRect().top + item.getBoundingClientRect().height + 'px')
+			console.log(item.getBoundingClientRect().top);
+		})
+
+		$('[data-toggle="menu"').on('click', function(){
+			if($(this).hasClass('active')){
+				$(this).removeClass('active')
+				$('.header').removeClass('active')
+				$('.header').css('padding-right', '')
+				$('body').css('padding-right', '')
+				$('body').removeClass('overflow-hidden')
+			}else{
+				$(this).addClass('active')
+				$('.header').addClass('active')
+				$('.header').css('padding-right', getScrollbarWidth() + 'px')
+				$('body').css('padding-right', getScrollbarWidth() + 'px')
+				$('body').addClass('overflow-hidden')
+			}
+		})
+	})
+
+	/* Window on scroll Event */
+	$(window).on("scroll", function () {
+		var scrolling = $(this).scrollTop();
+
+		if (scrolling > 200) {
+			$(".header").addClass('sticky');
+		} else {
+			$(".header").removeClass('sticky');
+		}
+	});
+
+})(jQuery)

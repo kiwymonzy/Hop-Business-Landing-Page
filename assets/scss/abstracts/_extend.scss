@@ -1,0 +1,137 @@
+%transition{
+    transition: all ease-in-out .25s;
+}
+
+%stacking-context{
+    position: relative;
+    isolation: isolate;
+}
+
+%full-width{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+%bg-light{
+    background-color: darken($color-white, $amount: 4);
+}
+
+%common-pseudo{
+    content: '';
+    position: absolute;
+}
+
+%overflow-hidden{
+    overflow: hidden;
+}
+
+%select-none{
+    user-select: none;
+    pointer-events: none;
+}
+
+%block-center{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+%uppercase{
+    text-transform: uppercase;
+}
+
+%card-gap{
+    margin-bottom: $gutter;
+}
+
+%rounded-pill{
+    border-radius: 50rem;
+}
+
+%rounded-circle{
+    border-radius: 100rem;
+}
+
+%border-none{
+    border: 0;
+}
+
+%cursor-pointer{
+    cursor: pointer;
+}
+
+%shadow-none{
+    box-shadow: none;
+}
+
+%fw-light{
+    font-weight: 300;
+}
+
+%fw-regular{
+    font-weight: 400;
+}
+
+%fw-medium{
+    font-weight: 500;
+}
+
+%fw-semibold{
+    font-weight: 600;
+}
+
+%fw-bold{
+    font-weight: 700;
+}
+
+%fw-extrabold{
+    font-weight: 800;
+}
+
+%custom-scrollbar{
+    scrollbar-color: $color-primary $color-primary--light;
+    scrollbar-width: thin;
+    &::-webkit-scrollbar {
+        appearance: none;
+        background-color: $color-primary--light;
+        @include max-sm{
+            height: 2px;
+        }
+        @include min-md{
+            width: 8px;
+        }
+    }
+    &::-webkit-scrollbar-thumb {
+        background-color: $color-primary;
+    }
+}
+
+%flex-align-center{
+    display: flex;
+    align-items: center;
+}
+
+%menu-container{
+    --_size: 100%;
+    @include min-sm{
+        --_size: 540px;
+    }
+    @include min-md{
+        --_size: 720px;
+    }
+    @include min-lg{
+        --_size: 960px;
+    }
+    @include min-xl{
+        --_size: 1140px;
+    }
+    @include min-xxl{
+        --_size: 1320px;
+    }
+
+    max-width: var(--_size);
+}
