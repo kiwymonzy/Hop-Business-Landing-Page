@@ -68,6 +68,17 @@ video
 	max-width: 100%;
 }
 
+p{
+	font-size: toRem(14);
+	@include min-md{
+		font-size: toRem(16);
+	}
+}
+
+:is(p, h1, h2, h3, h4, h5, h6) a{
+	text-decoration: underline $color-primary--dark !important;
+}
+
 .preloader{
 	z-index: 99999;
 }
@@ -75,14 +86,6 @@ video
 @include min-xxl {
 	.container{
 		max-width: toRem(1240)
-	}
-}
-
-
-@include max-md{
-	.px-0-md{
-		padding-left: 0;
-		padding-right: 0;
 	}
 }
 
@@ -105,43 +108,15 @@ video
 
 /* Common Section Heading Style */
 .section-header{
-	margin-bottom: toRem(50);
-	
 	&__title{
-		color: $color-primary;
-		font-size: toRem(18);
-		@include max-xxxs{
-			font-size: toRem(16);
+		font-size: toRem(30);
+		@include min-md{
+			font-size: toRem(45);
 		}
 		@include min-lg{
-			font-size: toRem(20);
-			letter-spacing: trackingToSpacing(100, 20px);
+			font-size: toRem(62);
 		}
-
-		@at-root .cta &{
-			@include min-xxl{
-				font-size: toRem(30);
-				letter-spacing: trackingToSpacing(200, 30px);
-			}
-		}
-		font-family: $font-primary;
-		font-weight: 700;
-		margin-bottom: toRem(15);
-		@extend %uppercase;
-	}
-
-	&__sub-title{
-		color: $color-secondary;
-		font-size: toRem(30);
-		@include max-xxxs{
-			font-size: toRem(24);
-		}
-		@include min-xxl{
-			font-size: toRem(50);
-		}
-		font-family: $font-primary;
-		font-weight: 700;
-		line-height: 1;
+		margin-bottom: toRem(40);
 	}
 }
 
@@ -165,6 +140,7 @@ video
 		}
 	}
 
+	&.active,
 	&:hover,
 	&:focus-visible
 	{
@@ -189,24 +165,18 @@ video
 	--bs-primary-rgb: #{$color-primary-rgb};
 }
 
+.text-primary--dark{
+	color: $color-primary--dark;
+}
+
+.bg-primary--light{
+	background-color: $color-primary--light;
+}
+
 .text-secondary,
 .bg-secondary
 {
 	--bs-secondary-rgb: #{$color-secondary-rgb};
-}
-
-.fancybox{
-	&-progress{
-		background-color: $color-primary;
-	}
-
-	&-thumbs__list a::before{
-		border-color: $color-primary;
-	}
-
-	&-thumbs__list{
-		@extend %custom-scrollbar;
-	}
 }
 
 .simplebar{
@@ -246,5 +216,24 @@ video
 
 	&__text{
 		color: $color-gray;
+	}
+}
+
+.list-item{
+	margin-bottom: toRem(30);
+
+	&__title{
+		font-size: toRem(20);
+		font-weight: 500;
+
+		&--lg{
+			@include min-lg{
+				font-size: toRem(32);
+			}
+		}
+	}
+
+	&__text{
+		margin-bottom: 0;
 	}
 }

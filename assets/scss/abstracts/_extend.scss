@@ -98,9 +98,6 @@
     &::-webkit-scrollbar {
         appearance: none;
         background-color: $color-primary--light;
-        @include max-sm{
-            height: 2px;
-        }
         @include min-md{
             width: 8px;
         }
@@ -134,4 +131,18 @@
     }
 
     max-width: var(--_size);
+}
+
+.banner,
+.pins
+{
+    position: relative;
+    
+    &::after{
+        @extend %common-pseudo;
+        bottom: 0;
+        width: 100%;
+        height: 10%;
+        background-image: linear-gradient(transparent, $color-white);
+    }
 }

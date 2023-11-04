@@ -1,6 +1,6 @@
 /* 
 --------------------------------------------------------------------
-Template Name: 	    Hop Website | Hop Website
+Template Name: 	    Hop | Hop Business Landing Page
 Version:            1.00
 Author:             Zahid Hasan Munna | Developer Zahid
 Author Occupation: 	Frontend Web Design & Developer
@@ -49,26 +49,13 @@ Author Email: 	    dgtaltechzahidhasan@gmail.com
 	/* Document on ready Event */
 	$(document).ready(function () {
 		calculateVerticalHeight()
+		getScrollbarWidth()
 
 		$('header').before('<div class="header-height-fix"></div>')
 		headerHeightFixer()
 
-		/* Prevent document scroll when dropdown is show function */
-		$('.header .dropdown-toggle').on('show.bs.dropdown', function(event){
-			$('body').css('padding-right', getScrollbarWidth() + 'px')
-			$('.header').css('padding-right', getScrollbarWidth() + 'px')
-			$('body').addClass('overflow-hidden')
-		})
-		/* Reset document scroll when dropdown is hide function */
-		$('.header .dropdown-toggle').on('hide.bs.dropdown', function(event){
-			$('body').css('padding-right', '')
-			$('.header').css('padding-right', '')
-			$('body').removeClass('overflow-hidden')
-		})
-
 		$('.navbar__nav__dropdown-menu').each(function(index, item){
 			$(this).css('--_height', item.getBoundingClientRect().top + item.getBoundingClientRect().height + 'px')
-			console.log(item.getBoundingClientRect().top);
 		})
 
 		$('[data-toggle="menu"').on('click', function(){
@@ -86,12 +73,23 @@ Author Email: 	    dgtaltechzahidhasan@gmail.com
 				$('body').addClass('overflow-hidden')
 			}
 		})
+
+		if(window.matchMedia("(max-width: 991.98px)").matches){
+			$('.navbar__nav__link').on('click', function(){
+				if($(this).hasClass('show')){
+					$(this).removeClass('show')
+					$(this).siblings('.navbar__nav__dropdown-menu').slideUp()
+				}else{
+					$(this).addClass('show')
+					$(this).siblings('.navbar__nav__dropdown-menu').slideDown()
+				}
+			})
+		}
 	})
 
 	/* Window on scroll Event */
 	$(window).on("scroll", function () {
 		var scrolling = $(this).scrollTop();
-
 		if (scrolling > 200) {
 			$(".header").addClass('sticky');
 		} else {

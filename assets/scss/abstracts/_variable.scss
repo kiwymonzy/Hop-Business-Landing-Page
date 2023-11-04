@@ -4,19 +4,20 @@ $scss-font-primary: 'Inter', sans-serif;
 $scss-color-primary:#34CFCB;
 $scss-color-primary-rgb: toRGB($scss-color-primary);
 $scss-color-primary--light:#D5FDFC;
+$scss-color-primary-rgb--light: toRGB($scss-color-primary--light);
 $scss-color-primary--dark:#25918d;
-$scss-color-secondary:#022561;
+$scss-color-secondary:#fff6eb;
 $scss-color-secondary-rgb: toRGB($scss-color-secondary);
-$scss-color-secondary--dark: darken($scss-color-secondary, 12.50%);
 
 :root{
     --color-primary: #{$scss-color-primary};
     --color-primary-rgb: #{$scss-color-primary-rgb};
     --color-primary--light: #{$scss-color-primary--light};
+    --color-primary-rgb--light: #{$scss-color-primary-rgb--light};
     --color-primary--dark: #{$scss-color-primary--dark};
     --color-secondary: #{$scss-color-secondary};
     --color-secondary-rgb: #{$scss-color-secondary-rgb};
-    --color-secondary--dark: #{$scss-color-secondary--dark};
+
     --font-primary: #{$scss-font-primary};
 }
 
@@ -27,10 +28,10 @@ $font-tertiary: var(--font-primary);
 $color-primary: var(--color-primary);
 $color-primary-rgb: var(--color-primary-rgb);
 $color-primary--light: var(--color-primary--light);
+$color-primary-rgb--light: var(--color-primary-rgb--light);
 $color-primary--dark: var(--color-primary--dark);
 $color-secondary: var(--color-secondary);
 $color-secondary-rgb: var(--color-secondary-rgb);
-$color-secondary--dark:var(--color-secondary--dark);
 
 $color-gray:#777777;
 $color-gray-dark:#3F3C3C;
@@ -42,5 +43,4 @@ $color-black:#000000;
 $color-white:#ffffff;
 
 $gutter: 28px;
-
 $transition-ease: cubic-bezier(.21,.01,.21,.96);

@@ -1,8 +1,17 @@
+/* Pins card Style */
 .pins__card{
+    display: flex;
+    align-items: flex-end;
     @extend %stacking-context;
     @extend %overflow-hidden;
     border-radius: toRem(15);
     outline: 1px solid transparent;
+
+    &::before{
+        @extend %common-pseudo;
+        @extend %full-width;
+        background-image: linear-gradient(180deg, transparent 47.11%, rgba($color-white, $alpha: 0.70) 80.43%);
+    }
 
     &__bg{
         width: 100%;
@@ -11,18 +20,6 @@
         z-index: -1;
         @extend %transition;
         @extend %select-none;
-    }
-}
-
-/* Pins Card Style */
-.pins__card{
-    display: flex;
-    align-items: flex-end;
-
-    &::before{
-        @extend %common-pseudo;
-        @extend %full-width;
-        background-image: linear-gradient(180deg, transparent 47.11%, rgba($color-white, $alpha: 0.70) 80.43%);
     }
 
     @include hover{
@@ -81,6 +78,24 @@
                 }
             }
             margin-bottom: 0;
+        }
+    }
+}
+
+/* Icon card Style */
+.icon-card{
+    margin-bottom: toRem(30);
+
+    &__icon{
+        color: $color-primary--dark;
+        font-size: toRem(55);
+        margin-bottom: toRem(35);
+        @include max-sm{
+            margin-bottom: toRem(20);
+        }
+        @include max-md{
+            margin-left: auto;
+            margin-right: auto;
         }
     }
 }

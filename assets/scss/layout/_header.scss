@@ -10,25 +10,25 @@
 	}
 
 	&.active{
-		--_color-bg: #{$color-primary--dark};
-		.navbar{
-			&__menu{
-				@include max-md{
+		@include max-md{
+			--_color-bg: #{$color-primary--dark};
+			.navbar{
+				&__menu{
 					opacity: 1;
 					visibility: visible;
 				}
-			}
-
-			&__nav__link{
-				color: $color-white;
-			}
-
-			&-brand__image{
-				filter: brightness(0) invert(1);
-			}
-
-			&__toggler__bar{
-				background-color: $color-white;
+	
+				&__nav__link{
+					color: $color-white;
+				}
+	
+				&-brand__image{
+					filter: brightness(0) invert(1);
+				}
+	
+				&__toggler__bar{
+					background-color: $color-white;
+				}
 			}
 		}
 	}
@@ -62,10 +62,10 @@
 
 		&__menu{
 			display: flex;
-			gap: toRem(30);
 			
 			@include min-lg{
 				align-items: center;
+				gap: toRem(30);
 			}
 
 			@include max-md{
@@ -100,9 +100,11 @@
 				width: 100%;
 				margin-left: auto;
 				margin-right: auto;
+				padding-right: calc(var(--bs-gutter-x) * .5);
+  				padding-left: calc(var(--bs-gutter-x) * .5);
+				padding-bottom: toRem(30);
+				overflow: auto;
 			}
-
-			@extend .container;
 
 			&__item{
 				position: relative;
@@ -116,45 +118,93 @@
 			}
 			
 			&__link{
+				position: relative;
 				display: block;
-				font-size: toRem(15);
+				width: 100%;
+				text-align: left;
 				font-weight: 500;
-				padding: toRem(8);
+				padding-top: 8px;
+				padding-bottom: 8px;
 				background-color: transparent;
 				border: 0;
 				transition: color .45s $transition-ease;
 
-				&:hover,
-				&:focus-visible
-				{
-					+ .navbar__nav__dropdown-menu{
-						opacity: 1;
-						visibility: visible;
+				@include min-lg{
+					font-size: toRem(15);
+					padding-left: 8px;
+					padding-right: 8px;
+
+					&:hover,
+					&:focus-visible
+					{
+						+ .navbar__nav__dropdown-menu{
+							opacity: 1;
+							visibility: visible;
+						}
+					}
+				}
+
+				@include max-md{
+					font-size: toRem(22);
+					padding-left: 0;
+					padding-right: 0;
+
+					&::before,
+					&::after
+					{
+						content: '';
+						position: absolute;
+						right: 5px;
+						top: 50%;
+						width: toRem(15);
+						transform: translateY(-50%) rotate(0);
+						height: 2px;
+						background-color: $color-white;
+						transition: opacity 0.2s $transition-ease;
+					}
+
+					&::after{
+						transform: translateY(-50%) rotate(90deg);
+					}
+
+					&.show::after{
+						opacity: 0;
+					}
+
+					.underline__text::after{
+						display: none;
 					}
 				}
 			}
 
 			&__dropdown-menu{
-				position: absolute;
-				opacity: 0;
-				visibility: hidden;
-				width: fit-content;
-				padding: toRem(30) toRem(10);
+				@include min-lg{
+					position: absolute;
+					opacity: 0;
+					visibility: hidden;
+					width: fit-content;
+					padding: toRem(30) toRem(10);
 
-				&:hover{
-					opacity: 1;
-					visibility: visible;
+					&:hover{
+						opacity: 1;
+						visibility: visible;
+					}
+					
+					&::before{
+						content: '';
+						position: fixed;
+						z-index: -1;
+						top: 0;
+						left: 0;
+						right: 0;
+						height: var(--_height);
+						background-color: $color-primary--dark;
+					}
 				}
-				
-				&::before{
-					content: '';
-					position: fixed;
-					z-index: -1;
-					top: 0;
-					left: 0;
-					right: 0;
-					height: var(--_height);
-					background-color: $color-primary--dark;
+				@include max-md{
+					display: none;
+					padding-top: toRem(15);
+					padding-bottom: toRem(15);
 				}
 
 				&__link{
@@ -162,7 +212,9 @@
 					color: $color-white;
 					font-size: toRem(17);
 					font-weight: 500;
-					white-space: nowrap;
+					@include min-lg{
+						white-space: nowrap;
+					}
 				}
 			}
 		}
@@ -182,10 +234,6 @@
 				padding-right: calc(var(--bs-gutter-x) * .5);
   				padding-left: calc(var(--bs-gutter-x) * .5);
 				border-top: 1px solid rgba($color-white, $alpha: 0.3);
-			}
-			
-			.btn{
-				@extend %rounded-pill;
 			}
 		}
 
