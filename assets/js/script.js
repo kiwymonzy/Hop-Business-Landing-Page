@@ -22,11 +22,6 @@ Author Email: 	    dgtaltechzahidhasan@gmail.com
 		}
 	}
 
-    function calculateVerticalHeight() {
-		var vh = window.innerHeight * 0.01;
-		document.documentElement.style.setProperty('--vh', vh + 'px')
-	}
-
 	function headerHeightFixer(){
 		$('.header-height-fix').css('height', $('header').innerHeight() +'px')
 		$('html').css('--header-size', $('header').innerHeight() +'px')
@@ -40,15 +35,9 @@ Author Email: 	    dgtaltechzahidhasan@gmail.com
 	$(window).on('load', function () {
         preLoader()
     })
-
-	/* Window on resize Event */
-	$(window).on('resize', function () {
-		calculateVerticalHeight()
-    })
 	
 	/* Document on ready Event */
 	$(document).ready(function () {
-		calculateVerticalHeight()
 		getScrollbarWidth()
 
 		$('header').before('<div class="header-height-fix"></div>')
