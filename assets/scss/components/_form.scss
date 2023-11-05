@@ -1,201 +1,22 @@
-.form{
-    &-label{
-        color: $color-black;
-        @include min-lg{
-            font-size: toRem(18);
-        }
-    }
-    &-control,
-    &-select
-    {
-        --bs-body-bg: #FAFAFA;
-        --bs-border-color: var(--bs-body-bg);
-        color: #3F3C3C;
-        font-size: toRem(16);
-        @include min-lg{
-            font-size: toRem(20);
-        }
-        padding: toRem(15) toRem(25);
-        
-        &::placeholder{
-            color: currentColor;
-            opacity: 1;
-        }
-        &:focus{
-            color: $color-black;
-            box-shadow: none;
-            border-color: #777777;
-        }
-
-        option{
-            font-size: toRem(14);
-        }
-    }
-    &-text-size{
-        font-size: toRem(12);
-        @include min-md{
-            font-size: toRem(16);
-        }
-    }
-}
-
-.form-control:focus + .input-group-text{
-    border-color: #777777;
-}
-
-.input-group-text{
-    background-color: #FAFAFA;
-    border-color: #FAFAFA;
-    transition: border-color .15s ease-in-out;
-    font-size: toRem(18);
-
-    &:focus-visible{
-        color: $color-primary;
-    }
-
-    &:is(.active) &__before,
-    &:not(.active) &__after
-    {
-        display: none;
-    }
-}
-
-.input-group-list{
-    display: flex;
-    flex-direction: column;
-    gap: toRem(15);
-}
-
-.create-form{
-    &__upload{
-        @extend %stacking-context;
-        @extend %cursor-pointer;
-        
-        &__input{
-            @extend %full-width;
-            opacity: 0;
-            z-index: 1;
-            @extend %cursor-pointer;
-        }
-
-        &__figure{
-            @extend %stacking-context;
-            @include max-xl{
-                padding-top: 115%;
-            }
-            @include max-md{
-                padding-top: 60%;
-            }
-            @include min-xxl{
-                height: toRem(600);
-            }
-
-            &__preview{
-                @extend %full-width;
-                @extend %select-none;
-            }
-        }
-    }
-
-    .form{
-        &-control,
-        &-select
-        {
-            @include min-lg{
-                font-size: toRem(18);
-            }
-        }
-    }
-}
-
-.comment-form{
-    gap: toRem(8);
-
-    &__avatar{
-        --_size: #{toRem(35)};
-        @include min-md{
-            --_size: #{toRem(50)};
-        }
-
-        width: var(--_size);
-        height: var(--_size);
-        @extend %rounded-circle;
-        @extend %stacking-context;
-        @extend %overflow-hidden;
-
-        &__bg{
-            @extend %full-width;
-        }
-    }
-
-    &__field{
-        @extend %rounded-pill;
-        @extend %overflow-hidden;
-        border: 1px solid $color-gray;
-        padding-top: toRem(4);
-        padding-bottom: toRem(4);
-        padding-left: toRem(18);
-        
-        &__input{
-            color: $color-gray;
-            padding-top: toRem(10);
-            padding-bottom: toRem(10);
-            max-height: toRem(44);
-            background-color: transparent;
-            resize: none;
-            @extend %custom-scrollbar;
-
-            &::placeholder{
-                opacity: 1;
-                color: currentColor;
-            }
-        }
-
-        &__btn{
-            display: none;
-            font-size: toRem(22);
-            padding-right: toRem(10);
-
-            &:active{
-                color: $color-primary;
-            }
-            @include hover{
-                &:hover,
-                &:focus-visible
-                {
-                    color: $color-primary;
-                }
-            }
-        }
-    }
-}
-
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button
-{
-    -webkit-appearance: none;
-    appearance: none;
-    margin: 0;
-}
-
-input[type=number] {
-    -moz-appearance: textfield;
-    appearance: textfield;
-}
-
-input[type=search]::-webkit-search-decoration,
-input[type=search]::-webkit-search-cancel-button,
-input[type=search]::-webkit-search-results-button,
-input[type=search]::-webkit-search-results-decoration
-{
-	display: none;
-}
-
-input:-webkit-autofill{
-	-webkit-text-fill-color: unset;
-	transition: background-color 5000s;
-}
-
-select{
+.form-select{
+    --bs-body-bg: #ffffff;
+    --bs-border-color: var(--bs-body-bg);
+    --bs-form-select-bg-img: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23ffffff' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
+    color: #ffffff;
+    font-size: toRem(16);
     cursor: pointer;
+    
+    &::placeholder{
+        color: currentColor;
+        opacity: 1;
+    }
+    &:focus{
+        color: $color-white;
+        box-shadow: none;
+        border-color: #ffffff;
+    }
+
+    option{
+        font-size: toRem(14);
+    }
 }

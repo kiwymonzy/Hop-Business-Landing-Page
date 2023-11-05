@@ -172,6 +172,9 @@ p{
 .bg-primary--light{
 	background-color: $color-primary--light;
 }
+.bg-primary--dark{
+	background-color: $color-primary--dark;
+}
 
 .text-secondary,
 .bg-secondary
@@ -236,4 +239,42 @@ p{
 	&__text{
 		margin-bottom: 0;
 	}
+}
+
+[data-bs-toggle="collapse"]{
+	position: relative;
+
+	&::before,
+	&::after
+	{
+		@extend %common-pseudo;
+		top: 50%;
+		right: 5px;
+		width: toRem(15);
+		height: 2px;
+		background-color: $color-white;
+		transition: opacity .25s $transition-ease;
+	}
+	&::before{
+		transform: translateY(-50%);
+	}
+	&::after{
+		transform: translateY(-50%) rotate(90deg);
+	}
+
+	&[aria-expanded="true"]::after{
+		opacity: 0;
+	}
+}
+
+.circle-number{
+	@extend %rounded-circle;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: toRem(25);
+	height: toRem(25);
+	border: 1px solid $color-white;
+	line-height: 0;
+	font-weight: 500;
 }

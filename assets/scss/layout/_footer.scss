@@ -1,0 +1,40 @@
+.footer{
+    &__logo{
+        max-height: toRem(50);
+    }
+
+    &__block{
+        margin-bottom: toRem(30);
+
+        &__title,
+        &__link
+        {
+            color: $color-white;
+        }
+
+        &__title{
+            font-size: toRem(16);
+            @include min-sm{
+                font-size: toRem(18);
+            }
+            font-weight: 600;
+            margin-bottom: toRem(15);
+        }
+
+        &__link{
+            display: block;
+            font-size: toRem(14);
+            @include min-sm{
+                font-size: toRem(15);
+            }
+            margin-bottom: toRem(10);
+
+            &:hover,
+            &:focus
+            {
+                color: $color-white;
+                text-decoration: underline;
+            }
+        }
+    }
+}
